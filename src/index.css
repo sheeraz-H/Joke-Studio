@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+/* Custom theme variables for better dark/light theme support */
+@theme {
+  --color-joke-purple: #7c3aed;
+  --color-joke-pink: #ec4899;
+  --color-joke-blue: #3b82f6;
+}
+
+/* Base styles */
+body {
+  @apply antialiased;
+}
+
+/* Custom utility classes */
+.glass {
+  @apply bg-gradient-to-br from-white/60 to-white/15 backdrop-blur-sm dark:from-white/3 dark:to-white/1;
+}
+
+.btn-primary {
+  @apply inline-flex items-center gap-2 px-4 py-2 rounded-xl 
+         bg-gradient-to-r from-joke-purple to-joke-pink 
+         text-white font-semibold shadow-md 
+         hover:shadow-lg hover:scale-105 
+         focus:outline-none focus:ring-2 focus:ring-joke-purple/50 
+         transition-all duration-200;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center gap-2 px-3 py-2 rounded-xl 
+         border border-slate-200 dark:border-slate-700 
+         bg-white/5 dark:bg-slate-800/20 
+         hover:bg-slate-50 dark:hover:bg-slate-800/40
+         focus:outline-none focus:ring-2 focus:ring-joke-purple/50 
+         transition-all duration-200;
+}
+
+.btn-icon {
+  @apply inline-flex items-center justify-center w-10 h-10 rounded-lg 
+         bg-white/5 dark:bg-slate-800/20 
+         border border-slate-200 dark:border-slate-700
+         hover:bg-slate-50 dark:hover:bg-slate-800/40
+         focus:outline-none focus:ring-2 focus:ring-joke-purple/50 
+         transition-all duration-200;
+}
+
+/* Custom scrollbar */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(100, 100, 120, 0.18) transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(100, 100, 120, 0.18);
+  border-radius: 999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 100, 120, 0.24);
+}
+
+/* Skeleton loading animation */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.06) 0%,
+    rgba(255, 255, 255, 0.18) 50%,
+    rgba(255, 255, 255, 0.06) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.6s linear infinite;
+}
+
+/* Float animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(8px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.45s ease-out;
+}
+
+/* Toast animations */
+.show-toast {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+.hide-toast {
+  transform: translateY(20px) scale(0.98);
+  opacity: 0;
+}
+
+/* Focus improvements */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-joke-purple/50 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-slate-900;
+}
+
+/* Accessibility improvements */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .glass {
+    background: white !important;
+    backdrop-filter: none !important;
+  }
+}
