@@ -157,6 +157,15 @@ const API_BASE = 'https://icanhazdadjoke.com';
 
 ## Development Notes
 
+## Screenshots
+
+### Dashboard
+![Dashboard Page 01](public/first.png)
+
+### Login Page
+![Dashboard Page 02](public/second.png)
+
+
 * ESLint and Prettier enabled
 * Follows React Hook rules
 * WCAG AA-friendly accessibility
