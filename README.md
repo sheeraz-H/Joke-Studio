@@ -46,12 +46,12 @@ A modern joke-fetching single-page application built with React and Vite, featur
 
 ### Dashboard
 <p align="center">
-  <img src="first.png" alt="Dashboard Page 01" width="600"/>
+  <img src="/public/first.png" alt="Dashboard Page 01" width="600"/>
 </p>
 
 ### Web Page
 <p align="center">
-  <img src="second.png" alt="Dashboard Page 02" width="600"/>
+  <img src="/public/second.png" alt="Dashboard Page 02" width="600"/>
 </p>
 
 ---
