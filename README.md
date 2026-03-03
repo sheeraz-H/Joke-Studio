@@ -160,11 +160,14 @@ const API_BASE = 'https://icanhazdadjoke.com';
 ## Screenshots
 
 ### Dashboard
-![Dashboard Page 01](public/first.png)
+<p align="center">
+  <img src="first.png" alt="Dashboard Page 01" width="600"/>
+</p>
 
-### Login Page
-![Dashboard Page 02](public/second.png)
-
+### web-page
+<p align="center">
+  <img src="second.png" alt="Dashboard Page 02" width="600"/>
+</p>
 
 * ESLint and Prettier enabled
 * Follows React Hook rules
