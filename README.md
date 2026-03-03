@@ -1,6 +1,10 @@
-# Joke Studio
+# 🎭 Joke Studio
 
 A modern joke-fetching single-page application built with React and Vite, featuring a polished UI, smooth animations, and advanced user functionality.
+
+🌐 **Live Demo:** [https://joke-studio.netlify.app/](https://joke-studio.netlify.app/)
+
+---
 
 ## Features
 
@@ -15,7 +19,7 @@ A modern joke-fetching single-page application built with React and Vite, featur
 ### User Experience
 
 * Light/Dark/System themes with transitions
-* Keyboard shortcuts: N (next), F (favorite), S (speak), / (search), Escape (close modal)
+* Keyboard shortcuts: `N` (next), `F` (favorite), `S` (speak), `/` (search), `Escape` (close modal)
 * Auto-refresh with tab visibility detection
 * Responsive design for all screen sizes
 
@@ -38,6 +42,20 @@ A modern joke-fetching single-page application built with React and Vite, featur
 
 ---
 
+## Screenshots
+
+### Dashboard
+<p align="center">
+  <img src="first.png" alt="Dashboard Page 01" width="600"/>
+</p>
+
+### Web Page
+<p align="center">
+  <img src="second.png" alt="Dashboard Page 02" width="600"/>
+</p>
+
+---
+
 ## Quick Start
 
 ### Requirements
@@ -48,7 +66,7 @@ A modern joke-fetching single-page application built with React and Vite, featur
 ### Installation
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/your-username/joke-studio.git
 cd joke-studio
 bun install
 ```
@@ -119,6 +137,30 @@ src/
 
 ---
 
+## Docker
+
+### Build the Image
+
+```bash
+docker build -t jokestudio .
+```
+
+### Run the Container
+
+```bash
+docker run -p 3000:80 jokestudio
+```
+
+Open: `http://localhost:3000`
+
+### Using Docker Compose (Optional)
+
+```bash
+docker compose up --build
+```
+
+---
+
 ## Testing
 
 Includes:
@@ -137,7 +179,7 @@ bun run test
 
 ## Customization
 
-**Theme Colors (index.css):**
+**Theme Colors (`index.css`):**
 
 ```css
 @theme {
@@ -147,7 +189,7 @@ bun run test
 }
 ```
 
-**API Config (useJokeApi.js):**
+**API Config (`useJokeApi.js`):**
 
 ```javascript
 const API_BASE = 'https://icanhazdadjoke.com';
@@ -156,18 +198,6 @@ const API_BASE = 'https://icanhazdadjoke.com';
 ---
 
 ## Development Notes
-
-## Screenshots
-
-### Dashboard
-<p align="center">
-  <img src="first.png" alt="Dashboard Page 01" width="600"/>
-</p>
-
-### web-page
-<p align="center">
-  <img src="second.png" alt="Dashboard Page 02" width="600"/>
-</p>
 
 * ESLint and Prettier enabled
 * Follows React Hook rules
@@ -178,23 +208,42 @@ const API_BASE = 'https://icanhazdadjoke.com';
 
 ## Deployment
 
+### Static Hosting (Netlify, Vercel, etc.)
+
 ```bash
 bun run build
 ```
 
-Deploy the `dist/` folder to any static hosting platform.
+Deploy the `dist/` folder to any static hosting platform. No environment variables required.
 
-No environment variables required.
+### Docker Deployment
 
-# Website URL: https://joke-studio.netlify.app/
+```bash
+docker build -t jokestudio .
+docker run -p 3000:80 jokestudio
+```
+
+---
+
+## Contributing
+
+Pull requests are welcome! Please follow these steps:
+
+1. Fork the repository
+2. Create a new branch: `git checkout -b feature/your-feature`
+3. Commit your changes: `git commit -m 'Add your feature'`
+4. Push to the branch: `git push origin feature/your-feature`
+5. Open a pull request
 
 ---
 
 ## Acknowledgments
 
-* icanhazdadjoke.com — public joke API
+* [icanhazdadjoke.com](https://icanhazdadjoke.com) — public joke API
 * React, Vite, Tailwind CSS, Bun
 
 ---
 
+## License
 
+MIT
