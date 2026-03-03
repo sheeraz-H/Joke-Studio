@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@variant dark (&:where(.dark, .dark *));
+
 /* Custom theme variables for better dark/light theme support */
 @theme {
   --color-joke-purple: #7c3aed;
@@ -18,30 +20,30 @@ body {
 }
 
 .btn-primary {
-  @apply inline-flex items-center gap-2 px-4 py-2 rounded-xl 
-         bg-gradient-to-r from-joke-purple to-joke-pink 
-         text-white font-semibold shadow-md 
-         hover:shadow-lg hover:scale-105 
-         focus:outline-none focus:ring-2 focus:ring-joke-purple/50 
-         transition-all duration-200;
+  @apply inline-flex items-center gap-2 px-4 py-2 rounded-xl
+          bg-gradient-to-r from-joke-purple to-joke-pink
+          text-white font-semibold shadow-md
+          hover:shadow-lg hover:scale-105
+          focus:outline-none focus:ring-2 focus:ring-joke-purple/50
+          transition-all duration-200;
 }
 
 .btn-secondary {
-  @apply inline-flex items-center gap-2 px-3 py-2 rounded-xl 
-         border border-slate-200 dark:border-slate-700 
-         bg-white/5 dark:bg-slate-800/20 
-         hover:bg-slate-50 dark:hover:bg-slate-800/40
-         focus:outline-none focus:ring-2 focus:ring-joke-purple/50 
-         transition-all duration-200;
+  @apply inline-flex items-center gap-2 px-3 py-2 rounded-xl
+          border border-slate-200 dark:border-slate-700
+          bg-white/5 dark:bg-slate-800/20
+          hover:bg-slate-50 dark:hover:bg-slate-800/40
+          focus:outline-none focus:ring-2 focus:ring-joke-purple/50
+          transition-all duration-200;
 }
 
 .btn-icon {
-  @apply inline-flex items-center justify-center w-10 h-10 rounded-lg 
-         bg-white/5 dark:bg-slate-800/20 
-         border border-slate-200 dark:border-slate-700
-         hover:bg-slate-50 dark:hover:bg-slate-800/40
-         focus:outline-none focus:ring-2 focus:ring-joke-purple/50 
-         transition-all duration-200;
+  @apply inline-flex items-center justify-center w-10 h-10 rounded-lg
+          bg-white/5 dark:bg-slate-800/20
+          border border-slate-200 dark:border-slate-700
+          hover:bg-slate-50 dark:hover:bg-slate-800/40
+          focus:outline-none focus:ring-2 focus:ring-joke-purple/50
+          transition-all duration-200;
 }
 
 /* Custom scrollbar */
@@ -138,7 +140,7 @@ body {
   .no-print {
     display: none !important;
   }
-  
+
   .glass {
     background: white !important;
     backdrop-filter: none !important;
