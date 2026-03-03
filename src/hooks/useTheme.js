@@ -1,21 +1,15 @@
 import { useState, useEffect } from 'react';
 
 export function useTheme() {
-  const [theme, setTheme] = useState('system');
-
-  useEffect(() => {
-    // Load theme from localStorage
-    const savedTheme = localStorage.getItem('jokestudio_theme');
-    if (savedTheme) {
-      setTheme(savedTheme);
-    }
-  }, []);
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('jokestudio_theme') || 'system';
+  });
 
   useEffect(() => {
     const applyTheme = (themeValue) => {
       const root = document.documentElement;
       const body = document.body;
-      
+
       if (themeValue === 'dark') {
         body.classList.add('dark');
         root.setAttribute('data-theme', 'dark');
@@ -23,14 +17,13 @@ export function useTheme() {
         body.classList.remove('dark');
         root.setAttribute('data-theme', 'light');
       } else {
-        // system theme
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         if (prefersDark) {
           body.classList.add('dark');
         } else {
           body.classList.remove('dark');
         }
-        root.setAttribute('data-theme', 'system');
+        root.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
       }
     };
 
@@ -38,20 +31,21 @@ export function useTheme() {
     localStorage.setItem('jokestudio_theme', theme);
   }, [theme]);
 
-  // Listen for system theme changes
   useEffect(() => {
     if (theme === 'system') {
       const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-      
+
       const handleChange = () => {
         const prefersDark = mediaQuery.matches;
+        const root = document.documentElement;
         const body = document.body;
-        
+
         if (prefersDark) {
           body.classList.add('dark');
         } else {
           body.classList.remove('dark');
         }
+        root.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
       };
 
       mediaQuery.addEventListener('change', handleChange);
@@ -60,10 +54,10 @@ export function useTheme() {
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme(currentTheme => {
-      if (currentTheme === 'system') return 'dark';
-      if (currentTheme === 'dark') return 'light';
-      return 'system';
+    setTheme(current => {
+      if (current === 'light') return 'dark';
+      if (current === 'dark') return 'system';
+      return 'light';
     });
   };
 
